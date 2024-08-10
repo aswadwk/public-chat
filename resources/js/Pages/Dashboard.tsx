@@ -1,3 +1,10 @@
+import { Button } from "@/Components/ui/button";
+
 export default function Dashboard() {
-    return <div>Dashboard</div>;
+    return (
+        <div className="w-full min-h-screen bg-red-600">
+            Dashboard
+            <Button>Click me</Button>
+        </div>
+    );
 }
