@@ -49,6 +49,7 @@ export default function Login() {
                     required
                     value={data.email}
                     onChange={(e) => setData("email", e.target.value)}
+                    tabIndex={0}
                   />
                   {errors.email && (
                     <span className="text-xs text-red-500">{errors.email}</span>
@@ -60,6 +61,7 @@ export default function Login() {
                     <Link
                       href="/forgot-password"
                       className="inline-block ml-auto text-sm underline"
+                      tabIndex={-1}
                     >
                       Forgot your password?
                     </Link>
@@ -70,9 +72,10 @@ export default function Login() {
                     required
                     value={data.password}
                     onChange={(e) => setData("password", e.target.value)}
+                    tabIndex={0}
                   />
                 </div>
-                <Button type="submit" className="w-full">
+                <Button type="submit" className="w-full" tabIndex={0}>
                   Login
                 </Button>
               </div>

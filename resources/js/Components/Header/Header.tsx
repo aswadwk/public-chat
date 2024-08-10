@@ -26,7 +26,7 @@ const Header = () => {
   const { post } = useForm({});
 
   const signOut = () => {
-    post(route("v1.admin.auth.doLogout"));
+    post(route("web.auth.logout"));
   };
 
   return (
@@ -101,9 +101,7 @@ const Header = () => {
       </div>
       <div className="flex flex-col">
         <div className="text-sm capitalize">Aswad</div>
-        <span className="text-sm capitalize text-muted-foreground">
-          Super Admin
-        </span>
+        <p className="text-xs capitalize text-muted-foreground">Super Admin</p>
       </div>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
@@ -127,7 +125,6 @@ const Header = () => {
           <DropdownMenuItem className="cursor-pointer" asChild>
             <Link href="/profile">Settings</Link>
           </DropdownMenuItem>
-          {/* <DropdownMenuItem>Support</DropdownMenuItem> */}
           <DropdownMenuSeparator />
           <DropdownMenuItem
             onClick={() => signOut()}

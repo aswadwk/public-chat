@@ -22,7 +22,7 @@ export default function Sidebar({
   const { url } = usePage();
 
   const isActive = (path: string) => {
-    return !!url.replace("/v1/admin/", "").startsWith(path);
+    return url.startsWith(path);
   };
 
   return (
@@ -75,44 +75,16 @@ export default function Sidebar({
 
 const SIDEBAR_ITEMS = [
   {
-    href: "/v1/admin/home",
+    href: "/",
     icon: <House className="w-4 h-4" />,
     label: "Home",
     requiredRoles: ["admin finance", "user"],
     darkMode: false,
   },
   {
-    href: "/v1/admin/users",
+    href: "/users",
     icon: <Users className="w-4 h-4" />,
     label: "Users",
-    requiredRoles: ["admin finance", "user"],
-    darkMode: false,
-  },
-  {
-    href: "/v1/admin/ids",
-    icon: <ShoppingCart className="w-4 h-4" />,
-    label: "Ppob Transactions",
-    requiredRoles: ["admin finance", "user"],
-    darkMode: false,
-  },
-  {
-    href: "/v1/admin/expenses",
-    icon: <ScanIcon className="w-4 h-4" />,
-    label: "Expenses",
-    requiredRoles: ["admin finance", "user"],
-    darkMode: false,
-  },
-  {
-    href: "/v1/admin/smart-scans",
-    icon: <ScanBarcode className="w-4 h-4" />,
-    label: "Smart Scans",
-    requiredRoles: ["admin finance", "user"],
-    darkMode: false,
-  },
-  {
-    href: "/v1/admin/admin-users",
-    icon: <Users className="w-4 h-4" />,
-    label: "Admin Users",
     requiredRoles: ["admin finance", "user"],
     darkMode: false,
   },
