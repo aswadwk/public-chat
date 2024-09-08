@@ -111,11 +111,11 @@ const Header = () => {
             className="overflow-hidden rounded-full"
           >
             <img
-              src="/logo-small.png"
+              src="/logomark.min.svg"
               width={36}
               height={36}
               alt="Avatar"
-              className="overflow-hidden rounded-full"
+              className="p-2 overflow-hidden rounded-full"
             />
           </Button>
         </DropdownMenuTrigger>

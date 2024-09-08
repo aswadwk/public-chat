@@ -3,11 +3,23 @@ import Sidebar from "@/Components/Sidebar/Sidebar";
 import { ThemeProvider } from "@/Components/ThemeProvider";
 import { Toaster } from "@/Components/ui/sonner";
 import store from "@/states";
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import { Provider } from "react-redux";
 
+const getInitialSidebarState = () => {
+  const storedValue = localStorage.getItem("sidebarExpanded");
+  return storedValue ? JSON.parse(storedValue) : true;
+};
+
 export default function DefaultLayout({ children }: any) {
-  const [sidebarExpanded, setSidebarExpanded] = useState(true);
+  const [sidebarExpanded, setSidebarExpanded] = useState(
+    getInitialSidebarState
+  );
+
+  // Update local storage whenever the state changes
+  useEffect(() => {
+    localStorage.setItem("sidebarExpanded", JSON.stringify(sidebarExpanded));
+  }, [sidebarExpanded]);
 
   return (
     <Provider store={store}>

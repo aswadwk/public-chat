@@ -39,9 +39,9 @@ export default function Sidebar({
           } flex shrink-0 items-center justify-center gap-2 rounded-lg`}
         >
           {sidebarExpanded ? (
-            <img width={84} height={84} src="/logo-small.png" alt="Logo" />
+            <img width={84} height={84} src="/logomark.min.svg" alt="Logo" />
           ) : (
-            <img width={84} height={84} src="/logo.png" alt="Logo" />
+            <img width={84} height={84} src="/logomark.min.svg" alt="Logo" />
           )}
         </Link>
       </div>
