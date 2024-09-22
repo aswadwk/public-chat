@@ -4,6 +4,10 @@ use App\Http\Controllers\Web\AuthController;
 use App\Http\Controllers\Web\DashboardController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', function () {
+    return redirect()->route('web.home');
+});
+
 // Auth
 Route::controller(AuthController::class)
     ->middleware("guest:web")
