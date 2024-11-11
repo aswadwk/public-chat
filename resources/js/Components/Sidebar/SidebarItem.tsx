@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { cn } from "@/Lib/utils";
+import { cn } from "@/lib/utils";
 import { buttonVariants } from "../ui/button";
 import { Link } from "@inertiajs/react";
 import {

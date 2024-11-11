@@ -4,7 +4,7 @@ import {
   SheetDescription,
   SheetHeader,
   SheetTitle,
-} from "@/Components/ui/sheet";
+} from "@/components/ui/sheet";
 import { SetStateAction } from "react";
 
 type SheetProps = {

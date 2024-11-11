@@ -5,7 +5,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/Components/ui/pagination";
+} from "@/components/ui/pagination";
 
 export default function PaginationCustom({ links }: any) {
   const first = links[0];

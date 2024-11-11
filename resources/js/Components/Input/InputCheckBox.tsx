@@ -1,4 +1,4 @@
-import { Checkbox } from "@/Components/ui/checkbox";
+import { Checkbox } from "@/components/ui/checkbox";
 
 export default function InputCheckBox({
   label,

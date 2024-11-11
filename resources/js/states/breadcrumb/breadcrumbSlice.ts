@@ -1,35 +1,37 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface BreadcrumbState {
-  breadcrumb: any;
-  error: string | null;
-  isLoading: boolean;
-  isDataFetched: boolean;
+    breadcrumb: IBreadcrumbItem[];
 }
 
 const initialState: BreadcrumbState = {
-  breadcrumb: [],
-  error: null,
-  isLoading: false,
-  isDataFetched: false,
+    breadcrumb: [
+        {
+            href: "#",
+            label: "Home",
+            active: true,
+        },
+        {
+            href: "#",
+            label: "Dashboard",
+            active: true,
+        },
+    ],
 };
 
 const breadcrumbSlice = createSlice({
-  name: "breadcrumb",
-  initialState,
-  reducers: {
-    resetDataFetched: (state) => {
-      state.isDataFetched = false;
+    name: "breadcrumb",
+    initialState,
+    reducers: {
+        setBreadcrumbData: (state, action: PayloadAction<any>) => {
+            state.breadcrumb = action.payload;
+        },
+        clearBreadcrumb: (state) => {
+            state.breadcrumb = [];
+        }
     },
-    setBreadcrumb: (state, action: PayloadAction<any>) => {
-      state.breadcrumb = action.payload;
-    },
-    clearBreadcrumb: (state) => {
-      state.breadcrumb = [];
-    }
-  },
 });
 
-export const { resetDataFetched, setBreadcrumb, clearBreadcrumb } = breadcrumbSlice.actions
+export const { setBreadcrumbData, clearBreadcrumb } = breadcrumbSlice.actions
 
 export default breadcrumbSlice.reducer

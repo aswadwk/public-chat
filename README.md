@@ -4,19 +4,26 @@ Boilerplate ini menyediakan konfigurasi awal untuk membangun aplikasi web menggu
 
 ## Fitur
 
-- **Laravel**: Backend framework PHP yang kuat dan fleksibel.
-- **Inertia.js**: Adapter untuk membangun SPA (Single Page Application) menggunakan framework frontend.
-- **TypeScript**: Bahasa pemrograman yang menambah tipe statis ke JavaScript.
-- **Tailwind CSS**: Framework CSS utilitas yang memungkinkan styling yang cepat dan konsisten.
-- **Shadcn**: Komponen UI yang dapat digunakan untuk mempercepat pengembangan antarmuka.
+-   **Laravel**: Backend framework PHP yang kuat dan fleksibel.
+-   **Inertia.js**: Adapter untuk membangun SPA (Single Page Application) menggunakan framework frontend.
+-   **TypeScript**: Bahasa pemrograman yang menambah tipe statis ke JavaScript.
+-   **Tailwind CSS**: Framework CSS utilitas yang memungkinkan styling yang cepat dan konsisten.
+-   **Shadcn**: Komponen UI yang dapat digunakan untuk mempercepat pengembangan antarmuka.
+-   **Redux Toolkit**: State management library untuk aplikasi React.
 
 ## Prasyarat
 
 Sebelum memulai, pastikan Anda telah menginstal:
 
-- [PHP](https://www.php.net/manual/en/install.php) (versi 8.3 atau yang lebih baru)
-- [Composer](https://getcomposer.org/)
-- [Node.js](https://nodejs.org/) (versi 16.x atau yang lebih baru)
-- pnpm
-- MySQL atau database lainnya
+-   [PHP](https://www.php.net/manual/en/install.php) (versi 8.3 atau yang lebih baru)
+-   [Composer](https://getcomposer.org/)
+-   [Node.js](https://nodejs.org/) (versi 16.x atau yang lebih baru)
+-   pnpm
+-   MySQL atau database lainnya
 
+## User
+
+```
+email : test@example.com
+password : password
+```
