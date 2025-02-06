@@ -1,129 +1,168 @@
 {
-  "_DefaultLayout-uKeptb5O.js": {
-    "file": "assets/DefaultLayout-uKeptb5O.js",
+  "_DefaultLayout-Cl3f9IWV.js": {
+    "file": "assets/DefaultLayout-Cl3f9IWV.js",
     "name": "DefaultLayout",
     "imports": [
       "resources/js/app.tsx",
-      "_button-a3j8gQce.js",
-      "_input-CX-UC3t_.js",
-      "_index-te1CiKam.js",
-      "_avatar-C9f4rZsb.js"
+      "_button-BmJIn_d_.js",
+      "_utils-CAeF3P2J.js",
+      "_input-Z6mkrrUZ.js",
+      "_index-Cc2vVVDl.js",
+      "_index-CnEXIrMU.js",
+      "_createLucideIcon-CAGrl7JE.js"
     ]
   },
-  "_avatar-C9f4rZsb.js": {
-    "file": "assets/avatar-C9f4rZsb.js",
-    "name": "avatar",
+  "_button-BmJIn_d_.js": {
+    "file": "assets/button-BmJIn_d_.js",
+    "name": "button",
     "imports": [
       "resources/js/app.tsx",
-      "_button-a3j8gQce.js",
-      "_index-te1CiKam.js"
+      "_utils-CAeF3P2J.js"
     ]
   },
-  "_button-a3j8gQce.js": {
-    "file": "assets/button-a3j8gQce.js",
-    "name": "button",
+  "_card-CZUvnfSP.js": {
+    "file": "assets/card-CZUvnfSP.js",
+    "name": "card",
+    "imports": [
+      "resources/js/app.tsx",
+      "_utils-CAeF3P2J.js"
+    ]
+  },
+  "_createLucideIcon-CAGrl7JE.js": {
+    "file": "assets/createLucideIcon-CAGrl7JE.js",
+    "name": "createLucideIcon",
     "imports": [
       "resources/js/app.tsx"
     ]
   },
-  "_index-te1CiKam.js": {
-    "file": "assets/index-te1CiKam.js",
+  "_index-Cc2vVVDl.js": {
+    "file": "assets/index-Cc2vVVDl.js",
     "name": "index",
     "imports": [
       "resources/js/app.tsx",
-      "_button-a3j8gQce.js"
+      "_button-BmJIn_d_.js"
     ]
   },
-  "_input-CX-UC3t_.js": {
-    "file": "assets/input-CX-UC3t_.js",
+  "_index-CnEXIrMU.js": {
+    "file": "assets/index-CnEXIrMU.js",
+    "name": "index",
+    "imports": [
+      "resources/js/app.tsx"
+    ]
+  },
+  "_input-Z6mkrrUZ.js": {
+    "file": "assets/input-Z6mkrrUZ.js",
     "name": "input",
     "imports": [
       "resources/js/app.tsx",
-      "_button-a3j8gQce.js"
+      "_utils-CAeF3P2J.js"
     ]
   },
+  "_utils-CAeF3P2J.js": {
+    "file": "assets/utils-CAeF3P2J.js",
+    "name": "utils"
+  },
   "resources/js/Pages/Auth/Login.tsx": {
-    "file": "assets/Login-3w2gGl0R.js",
+    "file": "assets/Login-x1DQdiTb.js",
     "name": "Login",
     "src": "resources/js/Pages/Auth/Login.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_button-a3j8gQce.js",
-      "_input-CX-UC3t_.js",
-      "_index-te1CiKam.js"
+      "_button-BmJIn_d_.js",
+      "_input-Z6mkrrUZ.js",
+      "_index-Cc2vVVDl.js",
+      "_utils-CAeF3P2J.js"
+    ]
+  },
+  "resources/js/Pages/Chat/Admin/Index.tsx": {
+    "file": "assets/Index-D0ZJFCCj.js",
+    "name": "Index",
+    "src": "resources/js/Pages/Chat/Admin/Index.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "_card-CZUvnfSP.js",
+      "_index-CnEXIrMU.js",
+      "_utils-CAeF3P2J.js"
     ]
   },
   "resources/js/Pages/Chat/Components/FormNewChat.tsx": {
-    "file": "assets/FormNewChat-CTY0j_AY.js",
+    "file": "assets/FormNewChat-BmlVQ3tm.js",
     "name": "FormNewChat",
     "src": "resources/js/Pages/Chat/Components/FormNewChat.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_button-a3j8gQce.js",
-      "_input-CX-UC3t_.js"
+      "_button-BmJIn_d_.js",
+      "_input-Z6mkrrUZ.js",
+      "_utils-CAeF3P2J.js"
     ]
   },
   "resources/js/Pages/Chat/Index.tsx": {
-    "file": "assets/Index-CrUEB4p5.js",
+    "file": "assets/Index-BlnOEq8c.js",
     "name": "Index",
     "src": "resources/js/Pages/Chat/Index.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_input-CX-UC3t_.js",
-      "_avatar-C9f4rZsb.js",
-      "_button-a3j8gQce.js",
-      "resources/js/Pages/Chat/Components/FormNewChat.tsx",
-      "_index-te1CiKam.js"
+      "_card-CZUvnfSP.js",
+      "_button-BmJIn_d_.js",
+      "_createLucideIcon-CAGrl7JE.js",
+      "_utils-CAeF3P2J.js"
     ]
   },
   "resources/js/Pages/Chats.tsx": {
-    "file": "assets/Chats-CaAl5044.js",
+    "file": "assets/Chats-BEbKC7EI.js",
     "name": "Chats",
     "src": "resources/js/Pages/Chats.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_DefaultLayout-uKeptb5O.js",
-      "_button-a3j8gQce.js",
-      "_input-CX-UC3t_.js",
-      "_index-te1CiKam.js",
-      "_avatar-C9f4rZsb.js"
+      "_DefaultLayout-Cl3f9IWV.js",
+      "_button-BmJIn_d_.js",
+      "_utils-CAeF3P2J.js",
+      "_input-Z6mkrrUZ.js",
+      "_index-Cc2vVVDl.js",
+      "_index-CnEXIrMU.js",
+      "_createLucideIcon-CAGrl7JE.js"
     ]
   },
   "resources/js/Pages/Dashboard.tsx": {
-    "file": "assets/Dashboard-B7Vj90dw.js",
+    "file": "assets/Dashboard-KVW0NVWD.js",
     "name": "Dashboard",
     "src": "resources/js/Pages/Dashboard.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_button-a3j8gQce.js"
+      "_button-BmJIn_d_.js",
+      "_utils-CAeF3P2J.js"
     ]
   },
   "resources/js/Pages/Dashboard/Dashboard.tsx": {
-    "file": "assets/Dashboard-shXQi2QJ.js",
+    "file": "assets/Dashboard-DJwDd_7F.js",
     "name": "Dashboard",
     "src": "resources/js/Pages/Dashboard/Dashboard.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_DefaultLayout-uKeptb5O.js",
-      "_button-a3j8gQce.js",
-      "_input-CX-UC3t_.js",
-      "_index-te1CiKam.js",
-      "_avatar-C9f4rZsb.js"
+      "_DefaultLayout-Cl3f9IWV.js",
+      "_button-BmJIn_d_.js",
+      "_utils-CAeF3P2J.js",
+      "_input-Z6mkrrUZ.js",
+      "_index-Cc2vVVDl.js",
+      "_index-CnEXIrMU.js",
+      "_createLucideIcon-CAGrl7JE.js"
     ]
   },
   "resources/js/app.tsx": {
-    "file": "assets/app-CWOQe9Ab.js",
+    "file": "assets/app-Cb62PE2H.js",
     "name": "app",
     "src": "resources/js/app.tsx",
     "isEntry": true,
     "dynamicImports": [
       "resources/js/Pages/Auth/Login.tsx",
+      "resources/js/Pages/Chat/Admin/Index.tsx",
       "resources/js/Pages/Chat/Components/FormNewChat.tsx",
       "resources/js/Pages/Chat/Index.tsx",
       "resources/js/Pages/Chats.tsx",
@@ -131,7 +170,7 @@
       "resources/js/Pages/Dashboard/Dashboard.tsx"
     ],
     "css": [
-      "assets/app-B85uoml1.css"
+      "assets/app-jtUu8inL.css"
     ]
   }
 }

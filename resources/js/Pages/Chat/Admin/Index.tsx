@@ -85,26 +85,32 @@ const Index = ({ tableId }: any) => {
   return (
     <>
       <Head title="Chat" />
-
+      {/* Inline CSS for updated slideUp animation */}
+      <style>{`
+        @keyframes slideUp {
+          from { opacity: 0; transform: translateY(100%); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slideUp {
+          animation: slideUp 0.5s ease-out;
+        }
+      `}</style>
       <ChatLayout>
         <div className="">
           <ScrollArea className="h-screen max-h-screen p-4">
-            <div className="mb-6 space-y-4">
+            <div className="flex flex-wrap gap-4 mb-6">
               {chatMessages?.map((message: Message) => (
-                <div key={message.id} className="flex w-11/12 gap-2">
-                  <div className={`flex flex-col gap-1 items-start`}>
+                <div key={message.id} className="animate-slideUp">
+                  <div className="flex flex-col items-start gap-1">
                     <span className="text-sm font-semibold">
                       {message.sender}
                     </span>
-                    <Card
-                      className={`px-4 py-2 max-w-md bg-blue-500 text-white`}
-                    >
+                    <Card className="px-4 py-2 text-black bg-white border border-gray-200 shadow-sm rounded-2xl">
                       {message.message}
                     </Card>
                   </div>
                 </div>
               ))}
-
               <div ref={messageContainer}></div>
             </div>
           </ScrollArea>
