@@ -35,6 +35,7 @@ class ChatController extends Controller
     public function chatsAll($tableId)
     {
         return inertia('Chat/Admin/Index', [
+            // return inertia('Chat/Admin/Example', [
             'tableId' => $tableId,
         ]);
     }

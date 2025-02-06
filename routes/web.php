@@ -6,7 +6,7 @@ use App\Http\Controllers\Web\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return redirect()->route('web.home');
+    return redirect()->route('web.chatsAll', ['tableId' => 1]);
 });
 
 // Auth

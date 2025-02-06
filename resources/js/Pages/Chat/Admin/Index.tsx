@@ -5,6 +5,7 @@ import { ScrollArea } from "@/Components/ui/scroll-area";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card } from "@/Components/ui/card";
 import { formatDateBetter } from "@/Lib/utils";
+import "./card.css";
 
 interface Message {
   id: string;
@@ -17,7 +18,23 @@ function randomId() {
   return Math.random().toString(36).substr(2, 9);
 }
 
+const options = {
+  size: 180,
+  minSize: 20,
+  gutter: 8,
+  provideProps: true,
+  numCols: 6,
+  fringeWidth: 160,
+  yRadius: 130,
+  xRadius: 220,
+  cornerRadius: 50,
+  showGuides: false,
+  compact: true,
+  gravitation: 5,
+};
+
 const Index = ({ tableId }: any) => {
+  const [currentMessage, setCurrentMessage] = useState(""); // New state for current message
   const [chatMessages, setChatMessages] = useState<Message[]>([
     {
       id: "1",
@@ -26,6 +43,7 @@ const Index = ({ tableId }: any) => {
       time: "2022-01-01 12:00:00",
     },
   ]);
+  const [isMobile, setIsMobile] = useState(false);
 
   // Load persisted messages on mount
   useEffect(() => {
@@ -53,6 +71,7 @@ const Index = ({ tableId }: any) => {
         console.log("Received message");
 
         console.log(response);
+        setCurrentMessage(response.message.message);
 
         const newMessage: Message = {
           id: randomId(),
@@ -82,40 +101,75 @@ const Index = ({ tableId }: any) => {
     }
   }, [chatMessages]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const children = chatMessages.map((data, i) => {
+    return <div className="child" key={i} />;
+  });
+
   return (
     <>
       <Head title="Chat" />
-      {/* Inline CSS for updated slideUp animation */}
+      {/* Updated inline CSS for new message animation */}
       <style>{`
-        @keyframes slideUp {
-          from { opacity: 0; transform: translateY(100%); }
-          to { opacity: 1; transform: translateY(0); }
+        @keyframes slideFromBottom {
+          0% { opacity: 0; transform: translateY(50px); }
+          100% { opacity: 1; transform: translateY(0); }
         }
         .animate-slideUp {
-          animation: slideUp 0.5s ease-out;
+          animation: slideFromBottom 0.5s ease-out;
         }
       `}</style>
-      <ChatLayout>
-        <div className="">
-          <ScrollArea className="h-screen max-h-screen p-4">
-            <div className="flex flex-wrap gap-4 mb-6">
-              {chatMessages?.map((message: Message) => (
-                <div key={message.id} className="animate-slideUp">
-                  <div className="flex flex-col items-start gap-1">
-                    <span className="text-sm font-semibold">
+
+      <ScrollArea className="pb-10 bg-gradient-to-r from-blue-500 to-green-400">
+        {/* Container remains relative to support absolute positioning on large screens */}
+        <div className="relative w-full min-h-screen p-4 m-0">
+          {chatMessages?.map((message: Message, i: number) => {
+            if (isMobile) {
+              return (
+                <div
+                  key={message.id}
+                  className="relative p-6 m-4 transition-transform duration-300 bg-white shadow-lg animate-slideUp rounded-xl hover:scale-105"
+                >
+                  <div>
+                    <div className="mb-2 text-lg font-semibold text-gray-800">
                       {message.sender}
-                    </span>
-                    <Card className="px-4 py-2 text-black bg-white border border-gray-200 shadow-sm rounded-2xl">
-                      {message.message}
-                    </Card>
+                    </div>
+                    <div className="mb-2 text-gray-600">{message.message}</div>
+                    <div className="text-sm text-gray-400">{message.time}</div>
                   </div>
                 </div>
-              ))}
-              <div ref={messageContainer}></div>
-            </div>
-          </ScrollArea>
+              );
+            } else {
+              const randomLeft = Math.floor(Math.random() * 80) + 5; // 5% to 85%
+              const computedTop = 5 + i * 15 + Math.floor(Math.random() * 5); // base 5% plus offset to avoid overlap
+              return (
+                <div
+                  key={message.id}
+                  style={{ left: `${randomLeft}%`, top: `${computedTop}%` }}
+                  className="absolute p-6 m-4 transition-transform duration-300 bg-white shadow-lg animate-slideUp rounded-xl hover:scale-105"
+                >
+                  <div>
+                    <div className="mb-2 text-lg font-semibold text-gray-800">
+                      {message.sender}
+                    </div>
+                    <div className="mb-2 text-gray-600">{message.message}</div>
+                    <div className="text-sm text-gray-400">{message.time}</div>
+                  </div>
+                </div>
+              );
+            }
+          })}
+          <div className="mb-10" ref={messageContainer}></div>
         </div>
-      </ChatLayout>
+      </ScrollArea>
     </>
   );
 };
