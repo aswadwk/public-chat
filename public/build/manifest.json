@@ -1,63 +1,137 @@
 {
-  "_button-CyVFzlkZ.js": {
-    "file": "assets/button-CyVFzlkZ.js",
+  "_DefaultLayout-uKeptb5O.js": {
+    "file": "assets/DefaultLayout-uKeptb5O.js",
+    "name": "DefaultLayout",
+    "imports": [
+      "resources/js/app.tsx",
+      "_button-a3j8gQce.js",
+      "_input-CX-UC3t_.js",
+      "_index-te1CiKam.js",
+      "_avatar-C9f4rZsb.js"
+    ]
+  },
+  "_avatar-C9f4rZsb.js": {
+    "file": "assets/avatar-C9f4rZsb.js",
+    "name": "avatar",
+    "imports": [
+      "resources/js/app.tsx",
+      "_button-a3j8gQce.js",
+      "_index-te1CiKam.js"
+    ]
+  },
+  "_button-a3j8gQce.js": {
+    "file": "assets/button-a3j8gQce.js",
     "name": "button",
     "imports": [
       "resources/js/app.tsx"
     ]
   },
-  "_index-2r2ejDFp.js": {
-    "file": "assets/index-2r2ejDFp.js",
+  "_index-te1CiKam.js": {
+    "file": "assets/index-te1CiKam.js",
     "name": "index",
     "imports": [
       "resources/js/app.tsx",
-      "_button-CyVFzlkZ.js"
+      "_button-a3j8gQce.js"
+    ]
+  },
+  "_input-CX-UC3t_.js": {
+    "file": "assets/input-CX-UC3t_.js",
+    "name": "input",
+    "imports": [
+      "resources/js/app.tsx",
+      "_button-a3j8gQce.js"
     ]
   },
   "resources/js/Pages/Auth/Login.tsx": {
-    "file": "assets/Login-Bj3gmjwH.js",
+    "file": "assets/Login-3w2gGl0R.js",
     "name": "Login",
     "src": "resources/js/Pages/Auth/Login.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_button-CyVFzlkZ.js",
-      "_index-2r2ejDFp.js"
+      "_button-a3j8gQce.js",
+      "_input-CX-UC3t_.js",
+      "_index-te1CiKam.js"
+    ]
+  },
+  "resources/js/Pages/Chat/Components/FormNewChat.tsx": {
+    "file": "assets/FormNewChat-CTY0j_AY.js",
+    "name": "FormNewChat",
+    "src": "resources/js/Pages/Chat/Components/FormNewChat.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "_button-a3j8gQce.js",
+      "_input-CX-UC3t_.js"
+    ]
+  },
+  "resources/js/Pages/Chat/Index.tsx": {
+    "file": "assets/Index-CrUEB4p5.js",
+    "name": "Index",
+    "src": "resources/js/Pages/Chat/Index.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "_input-CX-UC3t_.js",
+      "_avatar-C9f4rZsb.js",
+      "_button-a3j8gQce.js",
+      "resources/js/Pages/Chat/Components/FormNewChat.tsx",
+      "_index-te1CiKam.js"
+    ]
+  },
+  "resources/js/Pages/Chats.tsx": {
+    "file": "assets/Chats-CaAl5044.js",
+    "name": "Chats",
+    "src": "resources/js/Pages/Chats.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "_DefaultLayout-uKeptb5O.js",
+      "_button-a3j8gQce.js",
+      "_input-CX-UC3t_.js",
+      "_index-te1CiKam.js",
+      "_avatar-C9f4rZsb.js"
     ]
   },
   "resources/js/Pages/Dashboard.tsx": {
-    "file": "assets/Dashboard-D5qWVfPZ.js",
+    "file": "assets/Dashboard-B7Vj90dw.js",
     "name": "Dashboard",
     "src": "resources/js/Pages/Dashboard.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_button-CyVFzlkZ.js"
+      "_button-a3j8gQce.js"
     ]
   },
   "resources/js/Pages/Dashboard/Dashboard.tsx": {
-    "file": "assets/Dashboard-DwRYhvit.js",
+    "file": "assets/Dashboard-shXQi2QJ.js",
     "name": "Dashboard",
     "src": "resources/js/Pages/Dashboard/Dashboard.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_button-CyVFzlkZ.js",
-      "_index-2r2ejDFp.js"
+      "_DefaultLayout-uKeptb5O.js",
+      "_button-a3j8gQce.js",
+      "_input-CX-UC3t_.js",
+      "_index-te1CiKam.js",
+      "_avatar-C9f4rZsb.js"
     ]
   },
   "resources/js/app.tsx": {
-    "file": "assets/app-BUw1AhKw.js",
+    "file": "assets/app-CWOQe9Ab.js",
     "name": "app",
     "src": "resources/js/app.tsx",
     "isEntry": true,
     "dynamicImports": [
       "resources/js/Pages/Auth/Login.tsx",
+      "resources/js/Pages/Chat/Components/FormNewChat.tsx",
+      "resources/js/Pages/Chat/Index.tsx",
+      "resources/js/Pages/Chats.tsx",
       "resources/js/Pages/Dashboard.tsx",
       "resources/js/Pages/Dashboard/Dashboard.tsx"
     ],
     "css": [
-      "assets/app-qONcYPxF.css"
+      "assets/app-B85uoml1.css"
     ]
   }
 }

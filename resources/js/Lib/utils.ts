@@ -74,3 +74,16 @@ export function diffDayNow(date: any) {
 
   return dateMoment.diff(moment(), 'days');
 }
+
+export function formatDateBetter(dateStr: string): string {
+  const date = new Date(dateStr);
+  const now = new Date();
+
+  if (date.toDateString() === now.toDateString()) {
+    // If the date is today, return only the time.
+    return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  } else {
+    // Otherwise, return the full date and time.
+    return date.toLocaleDateString() + " " + date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  }
+}
