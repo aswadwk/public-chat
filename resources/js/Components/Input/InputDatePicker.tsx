@@ -4,13 +4,13 @@ import * as React from "react";
 import { CalendarIcon } from "@radix-ui/react-icons";
 
 import { cn, toYearMonthDay } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
+import { Button } from "@/Components/ui/button";
+import { Calendar } from "@/Components/ui/calendar";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
+} from "@/Components/ui/popover";
 
 export default function InputDatePicker() {
   const [date, setDate] = React.useState<Date>();

@@ -2,7 +2,7 @@ import { Head, useForm, usePage } from "@inertiajs/react";
 import { useEffect, useRef, useState } from "react";
 import ChatLayout from "@/Components/Layout/ChatLayout";
 import { ScrollArea } from "@/Components/ui/scroll-area";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/Components/ui/avatar";
 import { Card } from "@/Components/ui/card";
 import { cn, formatDateBetter } from "@/Lib/utils";
 import "./card.css";

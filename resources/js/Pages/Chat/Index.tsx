@@ -6,7 +6,7 @@ import ChatLayout from "@/Components/Layout/ChatLayout";
 // import { Button } from "@/Components/ui/button";
 import { Card } from "@/Components/ui/card";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/Components/ui/button";
 
 const Index = ({ tableId }: any) => {
   const { post, data, setData } = useForm({
