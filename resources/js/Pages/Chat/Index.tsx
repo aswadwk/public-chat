@@ -3,7 +3,7 @@ import { Head, useForm } from "@inertiajs/react";
 import { Send, Loader2 } from "lucide-react";
 import axios from "axios";
 import ChatLayout from "@/Components/Layout/ChatLayout";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/Components/ui/button";
 import { Card } from "@/Components/ui/card";
 import { useState } from "react";
 
