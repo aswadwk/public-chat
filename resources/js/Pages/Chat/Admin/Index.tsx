@@ -4,14 +4,16 @@ import ChatLayout from "@/Components/Layout/ChatLayout";
 import { ScrollArea } from "@/Components/ui/scroll-area";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card } from "@/Components/ui/card";
-import { formatDateBetter } from "@/Lib/utils";
+import { cn, formatDateBetter } from "@/Lib/utils";
 import "./card.css";
+import Message from "./Components/Message";
 
-interface Message {
+export interface Message {
   id: string;
   message: string;
   sender: string;
   time: string;
+  randomOffset?: number; // new property: value between 0 and 1
 }
 
 function randomId() {
@@ -34,16 +36,10 @@ const options = {
 };
 
 const Index = ({ tableId }: any) => {
-  const [currentMessage, setCurrentMessage] = useState(""); // New state for current message
-  const [chatMessages, setChatMessages] = useState<Message[]>([
-    {
-      id: "1",
-      message: "Hello",
-      sender: "Grace Miller",
-      time: "2022-01-01 12:00:00",
-    },
-  ]);
-  const [isMobile, setIsMobile] = useState(false);
+  const [chatMessages, setChatMessages] = useState<Message[]>([]);
+  const [containerWidth, setContainerWidth] = useState(0);
+  const lastMessageRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   // Load persisted messages on mount
   useEffect(() => {
@@ -51,6 +47,19 @@ const Index = ({ tableId }: any) => {
     if (stored) {
       setChatMessages(JSON.parse(stored));
     }
+  }, []);
+
+  useEffect(() => {
+    const updateWidth = () => {
+      if (scrollRef.current) {
+        setContainerWidth(scrollRef.current.offsetWidth);
+      }
+    };
+
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+
+    return () => window.removeEventListener("resize", updateWidth);
   }, []);
 
   // Persist messages to storage whenever updated
@@ -70,14 +79,12 @@ const Index = ({ tableId }: any) => {
       }).listen("MessageSend", (response: any) => {
         console.log("Received message");
 
-        console.log(response);
-        setCurrentMessage(response.message.message);
-
         const newMessage: Message = {
           id: randomId(),
           message: response.message.message,
           sender: response.message.sender,
           time: response.message.time,
+          randomOffset: Math.random(), // assign random offset once
         };
 
         setChatMessages((prev) => [...prev, newMessage]);
@@ -99,20 +106,11 @@ const Index = ({ tableId }: any) => {
         behavior: "smooth",
       });
     }
+
+    if (lastMessageRef.current) {
+      lastMessageRef.current.scrollIntoView({ behavior: "smooth" });
+    }
   }, [chatMessages]);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 640);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const children = chatMessages.map((data, i) => {
-    return <div className="child" key={i} />;
-  });
 
   return (
     <>
@@ -128,48 +126,39 @@ const Index = ({ tableId }: any) => {
         }
       `}</style>
 
-      <ScrollArea className="pb-10 bg-gradient-to-r from-blue-500 to-green-400">
-        {/* Container remains relative to support absolute positioning on large screens */}
-        <div className="relative w-full min-h-screen p-4 m-0">
-          {chatMessages?.map((message: Message, i: number) => {
-            if (isMobile) {
+      <div
+        ref={scrollRef}
+        className="w-full h-screen bg-gradient-to-br from-blue-500 via-teal-500 to-green-500"
+      >
+        <ScrollArea className="h-full p-4">
+          <div className="flex flex-wrap gap-2">
+            {chatMessages.map((message, index) => {
+              const maxWidth = Math.min(300, containerWidth * 1); // Max width of 70% of container or 300px
+              // Compute margin using stored randomOffset, fallback to 0 if missing
+              const marginLeft = `${(
+                (message.randomOffset ?? 0) *
+                (containerWidth - maxWidth)
+              ).toFixed(0)}px`;
               return (
                 <div
                   key={message.id}
-                  className="relative p-6 m-4 transition-transform duration-300 bg-white shadow-lg animate-slideUp rounded-xl hover:scale-105"
+                  ref={
+                    index === chatMessages.length - 1 ? lastMessageRef : null
+                  }
+                  className="flex-shrink-0 transition-all duration-300"
+                  style={{
+                    maxWidth: `${maxWidth}px`,
+                    minWidth: `${Math.min(200, maxWidth)}px`,
+                    marginLeft,
+                  }}
                 >
-                  <div>
-                    <div className="mb-2 text-lg font-semibold text-gray-800">
-                      {message.sender}
-                    </div>
-                    <div className="mb-2 text-gray-600">{message.message}</div>
-                    <div className="text-sm text-gray-400">{message.time}</div>
-                  </div>
+                  <Message message={message} index={index} marginClass="mx-2" />
                 </div>
               );
-            } else {
-              const randomLeft = Math.floor(Math.random() * 80) + 5; // 5% to 85%
-              const computedTop = 5 + i * 15 + Math.floor(Math.random() * 5); // base 5% plus offset to avoid overlap
-              return (
-                <div
-                  key={message.id}
-                  style={{ left: `${randomLeft}%`, top: `${computedTop}%` }}
-                  className="absolute p-6 m-4 transition-transform duration-300 bg-white shadow-lg animate-slideUp rounded-xl hover:scale-105"
-                >
-                  <div>
-                    <div className="mb-2 text-lg font-semibold text-gray-800">
-                      {message.sender}
-                    </div>
-                    <div className="mb-2 text-gray-600">{message.message}</div>
-                    <div className="text-sm text-gray-400">{message.time}</div>
-                  </div>
-                </div>
-              );
-            }
-          })}
-          <div className="mb-10" ref={messageContainer}></div>
-        </div>
-      </ScrollArea>
+            })}
+          </div>
+        </ScrollArea>
+      </div>
     </>
   );
 };
