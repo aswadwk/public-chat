@@ -1,0 +1,1 @@
+import{j as t}from"./app-CrTJK8ny.js";import{D as r}from"./DefaultLayout-C56wcrHL.js";import"./button-cWJ1Esb3.js";import"./utils-B348dVEm.js";import"./input-DOvJz2zc.js";import"./index-Cq8mEaRi.js";import"./index-Bg-Uas9Y.js";import"./createLucideIcon-BML_1b61.js";const f=()=>t.jsx(r,{children:"Chats"});export{f as Chats,f as default};
